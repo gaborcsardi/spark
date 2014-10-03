@@ -1,9 +1,8 @@
 
-#' Prettier command line user interface
+#' Sparklines in the R terminal
 #'
 #' @docType package
-#' @name pretty
-#' @importFrom crayon has_color
+#' @name sparklines
 #' @importFrom magrittr %>%
 NULL
 

@@ -1,16 +1,14 @@
-Package: pretty
-Title: Pretty Command Line Applications
+Package: spark
+Title: Sparklines in the R Terminal
 Version: 1.0.0
 Authors@R: "Gabor Csardi <csardi.gabor@gmail.com> [aut, cre]"
-Description: Various tools to provide a prettier command line user
-    interface from R packages. Pretty symbols, file sizes,
-    time intervals, tables, progress bars, sparklines.
+Description: Sparklines in the terminal. Essentially an R implementation
+    of the original shell project: http://zachholman.com/spark/
 License: MIT + file LICENSE
 LazyData: true
-URL: https://github.com/gaborcsardi/pretty
-BugReports: https://github.com/gaborcsardi/pretty/issues
+URL: https://github.com/gaborcsardi/spark
+BugReports: https://github.com/gaborcsardi/pretty/spark
 Imports:
-    crayon,
-    magrittr,
-    assertthat,
-    R6
+    magrittr
+Suggests:
+    crayon
