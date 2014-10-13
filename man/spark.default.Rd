@@ -35,6 +35,7 @@ cat(spark(lynx[1:getOption("width")]), "\\n")
 cat(crayon::blue(spark(lh)), "\\n")
 }
 \seealso{
-Other spark: \code{\link{spark}}
+Other spark: \code{\link{spark.matrix}};
+  \code{\link{spark}}
 }
 

@@ -1,16 +1,11 @@
 
 #' Spark line of a numeric vector on the terminal
 #'
+#' @inheritParams spark
 #' @param data The data to visualize. It can be a numeric
 #'   vector, or anything that can be cut into intervals
 #'   with \code{cut}. Infinite values in numeric data are ignored,
 #'   and a black character is plotted instead of them.
-#' @param width The width (number of characters) of the output.
-#'   \sQuote{data} means that it will match the length of the data.
-#'   \sQuote{screen} means that it will be scaled to match the
-#'   width of the screen. \sQuote{auto} means \sQuote{data}
-#'   if the length of the data is not longer than the screen width,
-#'   and \sQuote{screen} otherwise.
 #' @param ... Not used, it is an error if given.
 #' @return Character scalar containing the spark line.
 #'

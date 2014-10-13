@@ -24,6 +24,7 @@ Characacter vector containing the spark line(s).
 Generic spark line method for matrices or data frames, etc.
 }
 \seealso{
-Other spark: \code{\link{spark.default}}
+Other spark: \code{\link{spark.default}};
+  \code{\link{spark.matrix}}
 }
 

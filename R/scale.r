@@ -24,3 +24,7 @@ scale_to <- function(data, width) {
   }
   res
 }
+
+scale_y <- function(data, range) {
+  (data - range[1]) / (range[2] - range[1])
+}
