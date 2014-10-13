@@ -12,7 +12,7 @@ test_that("spark_line works", {
   )
 
   sapply(seq_along(tests), function(i) {
-    expect_equal(spark_line(tests[[i]][[1]]),
+    expect_equal(spark(tests[[i]][[1]]),
                  tests[[i]][[2]],
                  info = paste("#", i))
   })
@@ -20,15 +20,15 @@ test_that("spark_line works", {
 
 test_that("spark_line for constant data is good", {
 
-  expect_equal(spark_line(rep(10, 5)), '▄▄▄▄▄')
+  expect_equal(spark(rep(10, 5)), '▄▄▄▄▄')
 
 })
 
 test_that("spark_line can scale horizontally", {
 
-  csl <- spark_line(10)
+  csl <- spark(10)
   csl80 <- paste(rep(csl, getOption("width")), collapse = "")
-  expect_equal(spark_line(rep(10, 100), width = "auto"), csl80)
-  expect_equal(spark_line(rep(10, 100), width = "screen"), csl80)
+  expect_equal(spark(rep(10, 100), width = "auto"), csl80)
+  expect_equal(spark(rep(10, 100), width = "screen"), csl80)
 
 })

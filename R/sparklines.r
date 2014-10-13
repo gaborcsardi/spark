@@ -1,33 +1,4 @@
 
-spark_ticks <- c("\u2581", "\u2582", "\u2583", "\u2584",
-                 "\u2585", "\u2586", "\u2587", "\u2588")
-
-scale_to <- function(data, width) {
-
-  stopifnot(is.numeric(data), is.numeric(width),
-            length(width) == 1, width == as.integer(width), width >= 2)
-
-  sun <- seq_along(data) / length(data) * width
-  sun_unit <- sun[2] - sun[1]
-  res <- numeric(width)
-  for (i in seq_along(res)) {
-    points <- which(sun >= i-1 & sun <= i)
-    w <- rep(1, length(points))
-
-    if (points[1] != 1) {
-      w[1] <- (sun[points[1]] - (i-1)) / sun_unit
-    }
-
-    if (tail(points, 1) != length(data)) {
-      w1 <- (i - sun[tail(points, 1)]) / sun_unit
-      w <- c(w, w1)
-      points <- c(points, tail(points, 1) + 1)
-    }
-    res[i] <- sum(w * data[points]) / sum(w)
-  }
-  res
-}
-
 #' Spark line of a numeric vector on the terminal
 #'
 #' @param data The data to visualize. It can be a numeric
@@ -40,18 +11,23 @@ scale_to <- function(data, width) {
 #'   width of the screen. \sQuote{auto} means \sQuote{data}
 #'   if the length of the data is not longer than the screen width,
 #'   and \sQuote{screen} otherwise.
+#' @param ... Not used, it is an error if given.
 #' @return Character scalar containing the spark line.
 #'
+#' @family spark
+#' @method spark default
 #' @export
 #' @examples
-#' ## Annoal number of Lynx trappings
-#' cat(spark_line(lynx[1:getOption("width")]), "\n")
+#' ## Annual number of Lynx trappings
+#' cat(spark(lynx[1:getOption("width")]), "\n")
 #'
 #' ## Luteinizing Hormone in Blood Samples,
 #' ## in blue, if the terminal supports it
-#' cat(crayon::blue(spark_line(lh)), "\n")
+#' cat(crayon::blue(spark(lh)), "\n")
 
-spark_line <- function(data, width = c("data", "auto", "screen")) {
+spark.default <- function(data, width = c("data", "auto", "screen"), ...) {
+
+  if (length(list(...))) stop("Extra arguments are invalid")
 
   width <- match.arg(width)
 
