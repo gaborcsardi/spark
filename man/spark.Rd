@@ -3,7 +3,7 @@
 \alias{spark}
 \title{Generic spark line method for matrices or data frames, etc.}
 \usage{
-spark(data, width = c("data", "auto", "screen"), ...)
+spark(data, width = c("data", "auto", "screen"), print = TRUE, ...)
 }
 \arguments{
 \item{data}{The data to plot.}
@@ -14,6 +14,9 @@ spark(data, width = c("data", "auto", "screen"), ...)
 width of the screen. \sQuote{auto} means \sQuote{data}
 if the length of the data is not longer than the screen width,
 and \sQuote{screen} otherwise.}
+
+\item{print}{Whether to show the result on the screen. (If \code{FALSE},
+it will be only returned.)}
 
 \item{...}{Additional arguments to the various methods.}
 }

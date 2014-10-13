@@ -4,12 +4,25 @@
 \title{Spark lines for rows of a matrix.}
 \usage{
 \method{spark}{matrix}(data, width = c("data", "auto", "screen"),
-  common_scale = TRUE, ...)
+  print = TRUE, common_scale = TRUE, ...)
 }
 \arguments{
 \item{data}{The matrix to plot.}
 
-\item{...}{Not used, it is an error if given.}
+\item{width}{The width (number of characters) of the output.
+\sQuote{data} means that it will match the length of the data.
+\sQuote{screen} means that it will be scaled to match the
+width of the screen. \sQuote{auto} means \sQuote{data}
+if the length of the data is not longer than the screen width,
+and \sQuote{screen} otherwise.}
+
+\item{print}{Whether to show the result on the screen. (If \code{FALSE},
+it will be only returned.)}
+
+\item{common_scale}{Whether to plot all rows on a common scale.
+If \code{FALSE}, then all rows will have their own scales.}
+
+\item{...}{Additional arguments to the various methods.}
 }
 \value{
 Character scalar containing the spark line.
@@ -18,9 +31,9 @@ Character scalar containing the spark line.
 Spark lines for rows of a matrix.
 }
 \examples{
-cat(spark(volcano), sep = "\\n")
+spark(volcano)
 
-cat(spark(t(EuStockMarkets), width="auto"), sep="\\n")
+spark(t(EuStockMarkets), width="auto", common_scale = FALSE)
 }
 \seealso{
 Other spark: \code{\link{spark.default}};

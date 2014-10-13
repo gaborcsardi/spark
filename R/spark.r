@@ -11,10 +11,13 @@ spark_ticks <- c("\u2581", "\u2582", "\u2583", "\u2584",
 #'   width of the screen. \sQuote{auto} means \sQuote{data}
 #'   if the length of the data is not longer than the screen width,
 #'   and \sQuote{screen} otherwise.
+#' @param print Whether to show the result on the screen. (If \code{FALSE},
+#'   it will be only returned.)
 #' @param ... Additional arguments to the various methods.
 #' @return Characacter vector containing the spark line(s).
 #' @family spark
 #' @export
 
-spark <- function(data, width = c("data", "auto", "screen"), ...)
+spark <- function(data, width = c("data", "auto", "screen"), print = TRUE,
+                  ...)
   UseMethod("spark")

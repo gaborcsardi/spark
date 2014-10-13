@@ -20,7 +20,8 @@
 #' ## in blue, if the terminal supports it
 #' cat(crayon::blue(spark(lh)), "\n")
 
-spark.default <- function(data, width = c("data", "auto", "screen"), ...) {
+spark.default <- function(data, width = c("data", "auto", "screen"),
+                          print = TRUE, ...) {
 
   if (length(list(...))) stop("Extra arguments are invalid")
 
@@ -38,6 +39,13 @@ spark.default <- function(data, width = c("data", "auto", "screen"), ...) {
   code <- cut(data, breaks = length(spark_ticks)) %>%
     as.integer()
 
-  ifelse(is.na(code), ' ', spark_ticks[code]) %>%
+  res <- ifelse(is.na(code), ' ', spark_ticks[code]) %>%
     paste(collapse = "")
+
+  if (print) {
+    cat(res, "\n")
+    invisible(res)
+  } else {
+    res
+  }
 }

@@ -1,6 +1,10 @@
 
 context("Spark lines")
 
+spark <- function(...) {
+  spark::spark(..., print = FALSE)
+}
+
 test_that("spark_line works", {
 
   tests <- list(
