@@ -11,4 +11,5 @@ BugReports: https://github.com/gaborcsardi/pretty/spark
 Imports:
     magrittr
 Suggests:
-    crayon
+    crayon,
+    testthat
