@@ -2,6 +2,8 @@
 spark_ticks <- c("\u2581", "\u2582", "\u2583", "\u2584",
                  "\u2585", "\u2586", "\u2587", "\u2588")
 
+spark_ticks_fallback <- c("_", "=", "^")
+
 #' Generic spark line method for matrices or data frames, etc.
 #'
 #' @param data The data to plot.
@@ -21,3 +23,20 @@ spark_ticks <- c("\u2581", "\u2582", "\u2583", "\u2584",
 spark <- function(data, width = c("data", "auto", "screen"), print = TRUE,
                   ...)
   UseMethod("spark")
+
+
+is_utf8 <- function() {
+
+  Sys.getlocale("LC_CTYPE") %>%
+    grepl(pattern = "UTF-8")
+
+}
+
+
+.onLoad <- function(libname, pkgname) {
+
+  if (!is_utf8()) {
+    assign("spark_ticks", spark_ticks_fallback, envir = asNamespace(pkgname))
+  }
+
+}
