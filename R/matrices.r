@@ -6,6 +6,8 @@
 #' @param data The matrix to plot.
 #' @param common_scale Whether to plot all rows on a common scale.
 #'   If \code{FALSE}, then all rows will have their own scales.
+#' @param ... Passed to \code{spark.default}. E.g. it can be
+#'   used to mark the minimum and/or maximum values.
 #' @return Character scalar containing the spark line.
 #'
 #' @method spark matrix

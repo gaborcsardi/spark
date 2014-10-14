@@ -4,7 +4,7 @@
 \title{Spark line of a numeric vector on the terminal}
 \usage{
 \method{spark}{default}(data, width = c("data", "auto", "screen"),
-  print = TRUE, ...)
+  print = TRUE, min = NULL, max = NULL, ...)
 }
 \arguments{
 \item{data}{The data to visualize. It can be a numeric
@@ -22,21 +22,28 @@ and \sQuote{screen} otherwise.}
 \item{print}{Whether to show the result on the screen. (If \code{FALSE},
 it will be only returned.)}
 
+\item{min}{If not NULL, then a crayon style to mark the
+minimum value.}
+
+\item{max}{If not NULL, then a crayon style to mark the
+maximum value.}
+
 \item{...}{Not used, it is an error if given.}
 }
 \value{
 Character scalar containing the spark line.
 }
 \description{
-Spark line of a numeric vector on the terminal
+For marking the minumum/maximum, the \code{crayon} package
+is needed.
 }
 \examples{
 ## Annual number of Lynx trappings
-cat(spark(lynx[1:getOption("width")]), "\\n")
+spark(lynx, width = "auto")
 
 ## Luteinizing Hormone in Blood Samples,
 ## in blue, if the terminal supports it
-cat(crayon::blue(spark(lh)), "\\n")
+cat(crayon::blue(spark(lh, print = FALSE)), "\\n")
 }
 \seealso{
 Other spark: \code{\link{spark.matrix}};
