@@ -14,11 +14,11 @@
 #' @export
 #' @examples
 #' ## Annual number of Lynx trappings
-#' cat(spark(lynx[1:getOption("width")]), "\n")
+#' spark(lynx, width = "auto")
 #'
 #' ## Luteinizing Hormone in Blood Samples,
 #' ## in blue, if the terminal supports it
-#' cat(crayon::blue(spark(lh)), "\n")
+#' cat(crayon::blue(spark(lh, print = FALSE)), "\n")
 
 spark.default <- function(data, width = c("data", "auto", "screen"),
                           print = TRUE, ...) {
