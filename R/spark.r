@@ -2,7 +2,7 @@
 spark_ticks <- c("\u2581", "\u2582", "\u2583", "\u2584",
                  "\u2585", "\u2586", "\u2587", "\u2588")
 
-spark_ticks_fallback <- c("_", "=", "^")
+spark_ticks_fallback <- c("_", "~", "^")
 
 #' Generic spark line method for matrices or data frames, etc.
 #'
