@@ -17,7 +17,7 @@ Install it from github, with the `devtools` package:
 
 
 ```r
-devtools::install_packages("gaborcsardi/spark")
+devtools::install_github("gaborcsardi/spark")
 ```
 
 

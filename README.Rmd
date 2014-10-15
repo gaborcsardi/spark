@@ -21,7 +21,7 @@ has some cool usage examples.
 Install it from github, with the `devtools` package:
 
 ```{r eval = FALSE}
-devtools::install_packages("gaborcsardi/spark")
+devtools::install_github("gaborcsardi/spark")
 ```
 
 ```{r}
