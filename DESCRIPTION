@@ -1,13 +1,16 @@
 Package: spark
-Title: Sparklines in the R Terminal
+Title: Sparklines in the 'R' Terminal
 Version: 1.0.1
-Authors@R: "Gabor Csardi <csardi.gabor@gmail.com> [aut, cre]"
-Description: Sparklines in the terminal. Essentially an R implementation
-    of the original shell project: http://zachholman.com/spark/
+Author: Gabor Csardi
+Maintainer: Gabor Csardi <csardi.gabor@gmail.com>
+Description: A sparkline is a line chart, without axes and labels.
+    Its goal is to show the general shape of changes over time, or
+    another quantity. This package is an 'R' implementation
+    of the original shell project: <http://zachholman.com/spark/>.
 License: MIT + file LICENSE
 LazyData: true
 URL: https://github.com/gaborcsardi/spark
-BugReports: https://github.com/gaborcsardi/pretty/spark
+BugReports: https://github.com/gaborcsardi/spark/issues
 Imports:
     magrittr
 Suggests:
