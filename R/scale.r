@@ -1,4 +1,6 @@
 
+#' @importFrom utils tail
+
 scale_to <- function(data, width) {
 
   stopifnot(is.numeric(data), is.numeric(width),

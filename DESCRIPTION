@@ -12,7 +12,8 @@ LazyData: true
 URL: https://github.com/gaborcsardi/spark
 BugReports: https://github.com/gaborcsardi/spark/issues
 Imports:
-    magrittr
+    magrittr,
+    utils
 Suggests:
     crayon,
     testthat

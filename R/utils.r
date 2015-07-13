@@ -7,6 +7,7 @@ which_max <- function(x, tolerance = .Machine$double.eps^0.5) {
     which()
 }
 
+#' @importFrom utils installed.packages
 
 is_installed <- function(pkg) {
   pkg %in% rownames(installed.packages())
