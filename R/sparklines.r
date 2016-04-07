@@ -47,7 +47,8 @@ spark.default <- function(data, width = c("data", "auto", "screen"),
     cut(data, breaks = length(spark_ticks)) %>%
     as.integer()
   } else {
-    rep(ceiling(length(spark_ticks)/2), length(data))
+    rep(ceiling(length(spark_ticks)/2), length(data)) %>%
+      as.integer()
   }
 
   res <- ifelse(is.na(code), ' ', spark_ticks[code]) %>%
