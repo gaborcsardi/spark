@@ -43,8 +43,13 @@ spark.default <- function(data, width = c("data", "auto", "screen"),
 
   if (is.numeric(data)) data[!is.finite(data)] <- NA
 
-  code <- cut(data, breaks = length(spark_ticks)) %>%
+  code <- if (!all(data == 0)) {
+    cut(data, breaks = length(spark_ticks)) %>%
     as.integer()
+  } else {
+    rep(ceiling(length(spark_ticks)/2), length(data)) %>%
+      as.integer()
+  }
 
   res <- ifelse(is.na(code), ' ', spark_ticks[code]) %>%
     mark_max(data = data, multiplier = -1, mark = min) %>%
