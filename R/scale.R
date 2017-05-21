@@ -6,6 +6,17 @@ scale_to <- function(data, width) {
   stopifnot(is.numeric(data), is.numeric(width),
             length(width) == 1, width == as.integer(width), width >= 2)
 
+  if (width > length(data)) {
+    scale_to_longer(data, width)
+  } else if (width < length(data)) {
+    scale_to_shorter(data, width)
+  } else {
+    data
+  }
+}
+
+scale_to_shorter <- function(data, width) {
+
   sun <- seq_along(data) / length(data) * width
   sun_unit <- sun[2] - sun[1]
   res <- numeric(width)
@@ -29,4 +40,10 @@ scale_to <- function(data, width) {
 
 scale_y <- function(data, range) {
   (data - range[1]) / (range[2] - range[1])
+}
+
+scale_to_longer <- function(data, width) {
+
+  sun <- seq_len(width) * (length(data) / width)
+  data[round(sun)]
 }

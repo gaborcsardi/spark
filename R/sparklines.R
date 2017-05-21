@@ -32,14 +32,26 @@ spark.default <- function(data, width = c("data", "auto", "screen"),
 
   if (length(list(...))) stop("Extra arguments are invalid")
 
-  width <- match.arg(width)
+  width <- if (is.numeric(width)) {
+    width
 
-  win_size <- getOption("width")
-  if (width == "auto") {
-    width <- if (width <= win_size) "data" else "screen"
+  } else {
+    width <- match.arg(width)
+    win_size <- getOption("width")
+    if (width == "auto") {
+      if (length(data) <= win_size) {
+        length(data)
+      } else {
+        win_size
+      }
+    } else if (width == "data") {
+      length(data)
+    } else {
+      win_size
+    }
   }
 
-  if (width == "screen") data <- scale_to(data, win_size)
+  if (width != length(data)) data <- scale_to(data, width)
 
   if (is.numeric(data)) data[!is.finite(data)] <- NA
 
