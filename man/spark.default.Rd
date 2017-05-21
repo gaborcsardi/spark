@@ -5,7 +5,7 @@
 \title{Spark line of a numeric vector on the terminal}
 \usage{
 \method{spark}{default}(data, width = c("data", "auto", "screen"),
-  min = NULL, max = NULL, ...)
+  min = NULL, max = NULL, range = NULL, ...)
 }
 \arguments{
 \item{data}{The data to visualize. It can be a numeric
@@ -26,6 +26,9 @@ minimum value.}
 \item{max}{If not NULL, then a crayon style to mark the
 maximum value.}
 
+\item{range}{Numeric vector with two elements, the range for the
+sparklines. Defaults to the range of the data.}
+
 \item{...}{Not used, it is an error if given.}
 }
 \value{
@@ -41,6 +44,10 @@ spark(lynx)
 
 ## Scaling to shorter
 spark(lynx, width = 40)
+
+## Changing the range
+spark(1:10)
+spark(1:10, range = c(1, 100))
 
 ## Scaling to longer
 spark(1:10, width = 40)
