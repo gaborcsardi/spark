@@ -27,12 +27,3 @@ test_that("spark_line for constant data is good", {
   expect_equal(unclass(spark(rep(10, 5))), '▄▄▄▄▄' %or% '~~~~~')
 
 })
-
-test_that("spark_line can scale horizontally", {
-
-  csl <- spark(10)
-  csl80 <- paste(rep(csl, getOption("width")), collapse = "")
-  expect_equal(unclass(spark(rep(10, 100), width = "auto")), csl80)
-  expect_equal(unclass(spark(rep(10, 100), width = "screen")), csl80)
-
-})

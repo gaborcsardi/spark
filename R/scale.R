@@ -8,10 +8,8 @@ scale_to <- function(data, width) {
 
   if (width > length(data)) {
     scale_to_longer(data, width)
-  } else if (width < length(data)) {
-    scale_to_shorter(data, width)
   } else {
-    data
+    scale_to_shorter(data, width)
   }
 }
 
@@ -43,7 +41,6 @@ scale_y <- function(data, range) {
 }
 
 scale_to_longer <- function(data, width) {
-
   sun <- seq_len(width) * (length(data) / width)
-  data[round(sun)]
+  data[trunc(sun + 0.5)]
 }
