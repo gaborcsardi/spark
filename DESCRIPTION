@@ -18,6 +18,7 @@ Imports:
 Suggests:
     covr,
     crayon,
+    mockr,
     testthat
 Remotes: 
     gaborcsardi/clisymbols
