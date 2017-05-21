@@ -1,36 +1,42 @@
 
 context("Spark lines")
 
-`%or%` <- function(lhs, rhs) {
-  if (is_utf8()) lhs else rhs
-}
-
 test_that("spark_line works", {
-
+    
   tests <- list(
-    list(c(0,30,55,80,33,150), '▁▂▃▅▂█' %or% '__~~_^'), # 1
-    list(c(1, 5, 22, 13, 53), '▁▁▄▂█' %or% '__~_^'),    # 2
-    list(0:7, '▁▂▃▄▅▆▇█' %or% '___~~^^^'),              # 3
-    list(c(0, NaN, 7), '▁ █' %or% '_ ^'),               # 4
-    list(c(1,9,6,2,1,3,6,5,3,7,6,9), '▁█▅▁▁▂▅▄▂▆▅█' %or% '_^~___~~_^~^') # 5
+    list(c(0,30,55,80,33,150), '123528'),
+    list(c(1, 5, 22, 13, 53), '11428'),
+    list(0:7, '12345678'),
+    list(c(0, NaN, 7), '1 8'),
+    list(c(1,9,6,2,1,3,6,5,3,7,6,9), '185112542658')
   )
 
-  sapply(seq_along(tests), function(i) {
-    expect_equal(unclass(spark(tests[[i]][[1]])),
-                 tests[[i]][[2]],
-                 info = paste("#", i))
-  })
+  mockr::with_mock(
+    spark_ticks = function() as.character(1:8),
+    sapply(seq_along(tests), function(i) {
+      expect_equal(unclass(spark(tests[[i]][[1]])),
+                   tests[[i]][[2]],
+                   info = paste("#", i))
+    })
+  )
 })
 
 test_that("spark_line for constant data is good", {
 
-  expect_equal(unclass(spark(rep(10, 5))), '▄▄▄▄▄' %or% '~~~~~')
-
+  mockr::with_mock(
+    spark_ticks = function() as.character(1:8),
+    expect_equal(unclass(spark(rep(10, 5))), '44444')
+  )
 })
 
 test_that("printing", {
-  s <- spark(1:10)
-  expect_output(print(s), s)
+  mockr::with_mock(
+    spark_ticks = function() as.character(1:8),
+    {
+      s <- spark(1:10)
+      expect_output(print(s), s)
+    }
+  )
 })
 
 test_that("auto width", {

@@ -21,7 +21,3 @@ spark_ticks <- function() {
 
 spark <- function(data, width = c("data", "auto", "screen"), ...)
   UseMethod("spark")
-
-is_utf8 <- function() {
-  l10n_info()$`UTF-8`
-}
