@@ -16,6 +16,7 @@ Imports:
     methods,
     utils
 Suggests:
+    covr,
     crayon,
     testthat
 Remotes: 

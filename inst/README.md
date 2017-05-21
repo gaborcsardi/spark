@@ -4,6 +4,7 @@
 [![Linux Build Status](https://travis-ci.org/gaborcsardi/spark.svg?branch=master)](https://travis-ci.org/gaborcsardi/spark)
 [![Windows Build status](https://ci.appveyor.com/api/projects/status/github/gaborcsardi/spark?svg=true)](https://ci.appveyor.com/project/gaborcsardi/spark)
 [![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/spark)](http://cran.r-project.org/web/packages/spark/index.html)
+[![Coverage Status](https://img.shields.io/codecov/c/github/gaborcsardi/spark/master.svg)](https://codecov.io/github/gaborcsardi/spark?branch=master)
 
 # spark
 
