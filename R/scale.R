@@ -36,10 +36,6 @@ scale_to_shorter <- function(data, width) {
   res
 }
 
-scale_y <- function(data, range) {
-  (data - range[1]) / (range[2] - range[1])
-}
-
 scale_to_longer <- function(data, width) {
   sun <- seq_len(width) * (length(data) / width)
   data[trunc(sun + 0.5)]

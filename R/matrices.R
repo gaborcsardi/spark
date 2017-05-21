@@ -21,9 +21,10 @@
 spark.matrix <- function(data, width = c("data", "auto", "screen"),
                          common_scale = TRUE, ...) {
 
-  if (common_scale) data <- t(apply(data, 1, scale_y, range = range(data)))
+  if (!is.numeric(width)) width <- match.arg(width)
 
-  res <- apply(data, 1, spark, width = width, ...)
+  range <- if (common_scale) range(data) else NULL
+  res <- apply(data, 1, spark, width = width, range = range, ...)
 
   class(res) <- unique(c("sparkline", class(res), "character"))
   res
