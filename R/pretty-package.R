@@ -3,7 +3,4 @@
 #'
 #' @docType package
 #' @name sparklines
-#' @importFrom magrittr %>%
 NULL
-
-. <- "STFU"

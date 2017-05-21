@@ -25,10 +25,10 @@
 #'
 #' ## Luteinizing Hormone in Blood Samples,
 #' ## in blue, if the terminal supports it
-#' cat(crayon::blue(spark(lh, print = FALSE)), "\n")
+#' cat(crayon::blue(spark(lh)), "\n")
 
 spark.default <- function(data, width = c("data", "auto", "screen"),
-                          print = TRUE, min = NULL, max = NULL, ...) {
+                          min = NULL, max = NULL, ...) {
 
   if (length(list(...))) stop("Extra arguments are invalid")
 
@@ -43,25 +43,21 @@ spark.default <- function(data, width = c("data", "auto", "screen"),
 
   if (is.numeric(data)) data[!is.finite(data)] <- NA
 
+  ticks <- spark_ticks()
+
   code <- if (!all(data == 0)) {
-    cut(data, breaks = length(spark_ticks)) %>%
-    as.integer()
+    as.integer(cut(data, breaks = length(ticks)))
   } else {
-    rep(ceiling(length(spark_ticks)/2), length(data)) %>%
-      as.integer()
+    as.integer(rep(ceiling(length(ticks)/2), length(data)))
   }
 
-  res <- ifelse(is.na(code), ' ', spark_ticks[code]) %>%
-    mark_max(data = data, multiplier = -1, mark = min) %>%
-    mark_max(data = data, multiplier =  1, mark = max) %>%
-    paste(collapse = "")
+  res <- ifelse(is.na(code), ' ', ticks[code])
+  res <- mark_max(res, data = data, multiplier = -1, mark = min)
+  res <- mark_max(res, data = data, multiplier =  1, mark = max)
+  res <- paste(res, collapse = "")
 
-  if (print) {
-    cat(res, "\n")
-    invisible(res)
-  } else {
-    res
-  }
+  class(res) <- unique(c("sparkline", class(res), "character"))
+  res
 }
 
 
@@ -77,3 +73,15 @@ mark_max <- function(data, ticks, multiplier, mark) {
   ticks[wm] <- import("crayon", "style")(ticks[wm], as = mark)
   ticks
 }
+
+
+#' @export
+
+print.sparkline <- function(x, ..., sep = "\n") {
+  cat(x, ..., sep = "\n")
+  invisible(x)
+}
+
+#' @importFrom methods setOldClass
+
+setOldClass(c("sparkline", "character"))

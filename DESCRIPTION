@@ -1,6 +1,6 @@
 Package: spark
 Title: Sparklines in the 'R' Terminal
-Version: 1.0.1.9000
+Version: 2.0.0
 Author: Gabor Csardi
 Maintainer: Gabor Csardi <csardi.gabor@gmail.com>
 Description: A sparkline is a line chart, without axes and labels.
@@ -12,8 +12,10 @@ LazyData: true
 URL: https://github.com/gaborcsardi/spark
 BugReports: https://github.com/gaborcsardi/spark/issues
 Imports:
-    magrittr,
+    clisymbols (>= 1.2.0),
+    methods,
     utils
 Suggests:
     crayon,
     testthat
+RoxygenNote: 6.0.1.9000

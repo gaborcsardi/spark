@@ -1,10 +1,6 @@
 
 context("Spark lines")
 
-spark <- function(...) {
-  spark::spark(..., print = FALSE)
-}
-
 `%or%` <- function(lhs, rhs) {
   if (is_utf8()) lhs else rhs
 }
@@ -20,7 +16,7 @@ test_that("spark_line works", {
   )
 
   sapply(seq_along(tests), function(i) {
-    expect_equal(spark(tests[[i]][[1]]),
+    expect_equal(unclass(spark(tests[[i]][[1]])),
                  tests[[i]][[2]],
                  info = paste("#", i))
   })
@@ -28,7 +24,7 @@ test_that("spark_line works", {
 
 test_that("spark_line for constant data is good", {
 
-  expect_equal(spark(rep(10, 5)), '▄▄▄▄▄' %or% '~~~~~')
+  expect_equal(unclass(spark(rep(10, 5))), '▄▄▄▄▄' %or% '~~~~~')
 
 })
 
@@ -36,7 +32,7 @@ test_that("spark_line can scale horizontally", {
 
   csl <- spark(10)
   csl80 <- paste(rep(csl, getOption("width")), collapse = "")
-  expect_equal(spark(rep(10, 100), width = "auto"), csl80)
-  expect_equal(spark(rep(10, 100), width = "screen"), csl80)
+  expect_equal(unclass(spark(rep(10, 100), width = "auto")), csl80)
+  expect_equal(unclass(spark(rep(10, 100), width = "screen")), csl80)
 
 })
