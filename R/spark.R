@@ -2,7 +2,7 @@
 #' @importFrom clisymbols symbol
 
 spark_ticks <- function() {
-  symbol[ paste0("lower_block_", 1:8) ]
+  unlist(symbol[ paste0("lower_block_", 1:8) ])
 }
 
 #' Generic spark line method for matrices or data frames, etc.

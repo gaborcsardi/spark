@@ -76,7 +76,7 @@ spark.default <- function(data, width = c("data", "auto", "screen"),
   code <- if (!all(augmented_data == 0)) {
     as.integer(cut(augmented_data, breaks = length(ticks)))
   } else {
-    as.integer(rep(ticks[1], length(augmented_data)))
+    rep(1L, length(augmented_data))
   }
   code <- tail(code, -length(range))
 
