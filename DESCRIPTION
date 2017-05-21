@@ -1,8 +1,8 @@
 Package: spark
 Title: Sparklines in the 'R' Terminal
 Version: 2.0.0
-Author: Gabor Csardi
-Maintainer: Gabor Csardi <csardi.gabor@gmail.com>
+Author: Gábor Csárdi
+Maintainer: Gábor Csárdi <csardi.gabor@gmail.com>
 Description: A sparkline is a line chart, without axes and labels.
     Its goal is to show the general shape of changes over time, or
     another quantity. This package is an 'R' implementation
@@ -23,3 +23,4 @@ Suggests:
 Remotes: 
     gaborcsardi/clisymbols
 RoxygenNote: 6.0.1.9000
+Encoding: UTF-8
