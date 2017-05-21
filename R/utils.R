@@ -8,8 +8,3 @@ which_max <- function(x, tolerance = .Machine$double.eps^0.5) {
 is_installed <- function(pkg) {
   pkg %in% rownames(installed.packages())
 }
-
-
-import <- function(pkg, name) {
-  getExportedValue(pkg, name)
-}

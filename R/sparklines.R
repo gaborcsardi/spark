@@ -88,7 +88,7 @@ mark_max <- function(data, ticks, multiplier, mark) {
   }
 
   wm <- which_max(multiplier * data)
-  ticks[wm] <- import("crayon", "style")(ticks[wm], as = mark)
+  ticks[wm] <- crayon::style(ticks[wm], as = mark)
   ticks
 }
 
