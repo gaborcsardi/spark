@@ -37,7 +37,13 @@ is needed.
 }
 \examples{
 ## Annual number of Lynx trappings
-spark(lynx, width = "auto")
+spark(lynx)
+
+## Scaling to shorter
+spark(lynx, width = 40)
+
+## Scaling to longer
+spark(1:10, width = 40)
 
 ## Luteinizing Hormone in Blood Samples,
 ## in blue, if the terminal supports it
