@@ -1,9 +1,9 @@
 Package: spark
-Title: Sparklines in the 'R' Terminal
+Title: 'Sparklines' in the 'R' Terminal
 Version: 2.0.0
 Author: Gábor Csárdi
 Maintainer: Gábor Csárdi <csardi.gabor@gmail.com>
-Description: A sparkline is a line chart, without axes and labels.
+Description: A 'sparkline' is a line chart, without axes and labels.
     Its goal is to show the general shape of changes over time, or
     another quantity. This package is an 'R' implementation
     of the original shell project: <http://zachholman.com/spark/>.
