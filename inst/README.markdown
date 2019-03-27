@@ -15,11 +15,11 @@ has some cool usage examples.
 
 ## Installation
 
-Install it from github, with the `devtools` package:
+Install the package from CRAN:
 
 
 ```r
-devtools::install_github("gaborcsardi/spark")
+install.packages("spark")
 ```
 
 
